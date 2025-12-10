@@ -352,3 +352,21 @@ body {
 		display: none;
 	}
 }
+
+/* Asegurar que todas las cards de proyectos ocupan el alto completo de la columna */
+#projects .project-card {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Igualar la altura de todas las tarjetas de proyectos */
+#projects .project-card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+/* Reset de transform para que todas las cards salgan alineadas */
+#projects .project-card {
+	transform: none !important;
+}
