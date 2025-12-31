@@ -399,3 +399,39 @@ body {
 	margin-top: 0.75rem; /* espacio entre título y línea */
 	margin-bottom: 0.75rem; /* espacio entre línea y texto de abajo */
 }
+
+
+/* textitos del carrusel */
+.carousel-caption {
+	bottom: -1.5rem !important;
+	padding-bottom: 1.5rem;
+}
+
+
+.project-info {
+	max-width: 680px;
+}
+
+.project-meta {
+	font-size: 0.85rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	opacity: 0.75;
+	margin-bottom: 0.35rem;
+}
+
+.project-description {
+	font-size: 0.95rem;
+	line-height: 1.5;
+	opacity: 0.9;
+	margin-bottom: 0;
+}
+
+.project-info .project-meta {
+	color: var(--accent-yellow) !important;
+	opacity: 0.65;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-size: 0.85rem;
+	margin-bottom: 0.25rem;
+}

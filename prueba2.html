@@ -14,10 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
 	
     <!-- Custom Styles -->
-	<link rel="stylesheet" href="./assets/css/index.css" />
+	<link rel="stylesheet" href="../porfolioTemplate/assets/css/index.css" />
 
 	<!-- Custom Scripts -->
-	<script src="./assets/js/main.js" defer></script>
+	<script src="../porfolioTemplate/assets/js/main.js" defer></script>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
 	<!-- Navigation -->
@@ -236,12 +236,12 @@
 
 					<!-- Pin 8 -->
 					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal8">
-						<img src="https://picsum.photos/700/720?random=108" alt="Proyecto 8" />
+						<img src="../porfolioTemplate/assets/images/tusMascotas.jpg" alt="Proyecto 8" />
 						<div class="pin-meta">
-							<h3 class="pin-title">Redes · Campaña</h3>
+							<h3 class="pin-title">Tus Mascotas</h3>
 							<div class="pin-tags">
-								<span class="badge bg-primary-subtle text-primary">Social</span>
-								<span class="badge bg-primary-subtle text-primary">Diseño</span>
+								<span class="badge bg-primary-subtle text-primary">Branding</span>
+								<span class="badge bg-primary-subtle text-primary">Mockup</span>
 							</div>
 						</div>
 					</button>
@@ -329,9 +329,12 @@
 							<span class="visually-hidden">Next</span>
 						</button>
 					</div>
-					<p class="mt-4 text-muted">
-						Proyecto: Reinterpretación cartelería obra Metamorfosis de Kafka.
-					</p>
+					<div class="project-info mt-4">
+						<p class="project-meta">2024 · Cartelería</p>
+						<p class="project-description">
+						Colección de carteles para La metamorfosis de Franz Kafka, adaptados a distintos contextos culturales: Venecia, Berlín y Madrid.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -379,9 +382,12 @@
 							<span class="visually-hidden">Next</span>
 						</button>
 					</div>
-					<p class="mt-4 text-muted">
-						Cartel conceptual con exploración tipográfica y jerarquía visual.
-					</p>
+					<div class="project-info mt-4">
+						<p class="project-meta">2024 · Packaging</p>
+						<p class="project-description">
+						Colección de packaging para chocolate negro, con leche y blanco, inspirada en la estética azteca y la simbología del cacao, acompañada de un folleto explicativo en formato díptico.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -569,19 +575,35 @@
 		<div class="modal-dialog modal-lg modal-dialog-centered">
 			<div class="modal-content bg-dark text-white">
 				<div class="modal-header border-0">
-					<h5 class="modal-title">Editorial · Portadas</h5>
+					<h5 class="modal-title">Revista Urban</h5>
 					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div id="carousel6" class="carousel slide" data-bs-ride="carousel">
 						<div class="carousel-inner rounded-4 overflow-hidden">
 							<div class="carousel-item active">
-								<img src="https://picsum.photos/900/520?random=211" class="d-block w-100" alt="img 1">
-								<div class="carousel-caption d-none d-md-block"><p>Serie de portadas.</p></div>
+								<img src="../porfolioTemplate/assets/images/Rportada.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Portada</p></div>
 							</div>
 							<div class="carousel-item">
-								<img src="https://picsum.photos/900/520?random=212" class="d-block w-100" alt="img 2">
-								<div class="carousel-caption d-none d-md-block"><p>Detalles de estilo.</p></div>
+								<img src="../porfolioTemplate/assets/images/R4-5.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R8-9.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R10-11.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R12-13 copia.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R14-15.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
 							</div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
@@ -612,11 +634,11 @@
 						<div class="carousel-inner rounded-4 overflow-hidden">
 							<div class="carousel-item active">
 								<img src="../porfolioTemplate/assets/images/cartelSantJordi_Mockup.jpg" class="d-block w-100" alt="img 1">
-								<div class="carousel-caption d-none d-md-block"><p>Diseño principal.</p></div>
+								<div class="carousel-caption d-none d-md-block"><p>Mockup y aplicación</p></div>
 							</div>
 							<div class="carousel-item">
-								<img src="https://picsum.photos/900/520?random=214" class="d-block w-100" alt="img 2">
-								<div class="carousel-caption d-none d-md-block"><p>Mockups y aplicación.</p></div>
+								<img src="../porfolioTemplate/assets/images/CARTEL_SANT JORDI.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Cartel</p></div>
 							</div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#carousel7" data-bs-slide="prev">
@@ -634,23 +656,40 @@
 		</div>
 	</div>
 
+	<!-- Modal 8 -->
 	<div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-lg modal-dialog-centered">
 			<div class="modal-content bg-dark text-white">
 				<div class="modal-header border-0">
-					<h5 class="modal-title">Redes · Campaña</h5>
+					<h5 class="modal-title">Tus Mascotas</h5>
 					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div id="carousel8" class="carousel slide" data-bs-ride="carousel">
 						<div class="carousel-inner rounded-4 overflow-hidden">
 							<div class="carousel-item active">
-								<img src="https://picsum.photos/900/520?random=215" class="d-block w-100" alt="img 1">
-								<div class="carousel-caption d-none d-md-block"><p>Posts de campaña.</p></div>
+								<img src="../porfolioTemplate/assets/images/tusMascotas.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
 							</div>
 							<div class="carousel-item">
-								<img src="https://picsum.photos/900/520?random=216" class="d-block w-100" alt="img 2">
-								<div class="carousel-caption d-none d-md-block"><p>Adaptaciones.</p></div>
+								<img src="../porfolioTemplate/assets/images/camisetas tus mascotas.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/pegatinas_tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/boli_tusmascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/coche_tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/tarjeta tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
 							</div>
 						</div>
 						<button class="carousel-control-prev" type="button" data-bs-target="#carousel8" data-bs-slide="prev">
