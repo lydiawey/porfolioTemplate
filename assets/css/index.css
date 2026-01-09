@@ -1,437 +1,549 @@
 /* ==========================================================================
-   Grade 2: Bootstrap + GSAP Portfolio Demo
-   Custom styles extending Bootstrap 5
+   Portfolio (Bootstrap + GSAP) — CSS ordenado + Dark/Light sin pisadas
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1) Theme tokens
+   -------------------------------------------------------------------------- */
+
+/* Valores por defecto (oscuro, porque tu web está pensada así) */
 :root {
-	--bs-body-bg: #0f0f0f;
-	--bs-body-color: #f5f5f5;
+  /* Marca */
+  --bs-primary: #2563eb;
+  --bs-primary-rgb: 37, 99, 235;
+  --accent-yellow: #facc15;
 
-	/* AZUL base */
-	--bs-primary: #2563eb; /* azul elegante */
-	--bs-primary-rgb: 37, 99, 235;
+  /* UI */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-	/* AMARILLO acento */
-	--accent-yellow: #facc15;
+  /* Dark defaults (se sobreescriben en light) */
+  --bs-body-bg: #0f0f0f;
+  --bs-body-color: #f5f5f5;
+  --color-bg-alt: #1a1a1a;
 
-	/* fondos */
-	--color-bg-alt: #1a1a1a;
-
-	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Texto */
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --text-soft: rgba(255, 255, 255, 0.9);
 }
 
-/* Base */
+/* Modo oscuro */
+html[data-bs-theme="dark"] {
+  --bs-body-bg: #0f0f0f;
+  --bs-body-color: #f5f5f5;
+  --color-bg-alt: #1a1a1a;
+
+  --text-muted: rgba(255, 255, 255, 0.75);
+  --text-soft: rgba(255, 255, 255, 0.9);
+}
+
+/* Modo claro (funcional, sin re-diseñar toda la web) */
+html[data-bs-theme="light"] {
+  --bs-body-bg: #f6f6f6;
+  --bs-body-color: #111;
+  --color-bg-alt: #ffffff;
+
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-soft: rgba(0, 0, 0, 0.75);
+}
+
+/* --------------------------------------------------------------------------
+   2) Base
+   -------------------------------------------------------------------------- */
+
 body {
-	background-color: var(--bs-body-bg);
-	color: var(--bs-body-color);
-}
-
-.bg-dark {
-	background-color: var(--color-bg-alt) !important;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
 }
 
 .py-lg-6 {
-	padding-top: 6rem !important;
-	padding-bottom: 6rem !important;
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
 }
 
-/* Navigation */
+/* Secciones “dark” (en tu web son fondos alternativos). En claro NO deben ser negras */
+.bg-dark {
+  background-color: var(--color-bg-alt) !important;
+}
+
+/* Bootstrap text muted: controlado por variables */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3) Navigation
+   -------------------------------------------------------------------------- */
+
 .navbar {
-	background: rgba(15, 15, 15, 0.85);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
-	transition: background 0.3s;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s;
 }
 
 .navbar.scrolled {
-	background: rgba(15, 15, 15, 0.95);
+  background: rgba(15, 15, 15, 0.95);
 }
 
 .nav-link {
-	position: relative;
-	padding: 0.5rem 1rem !important;
+  position: relative;
+  padding: 0.5rem 1rem !important;
 }
 
 .nav-link::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 2px;
-	background: var(--accent-yellow);
-	transition: width 0.3s, left 0.3s;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-yellow);
+  transition: width 0.3s, left 0.3s;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-	width: 100%;
-	left: 0;
+  width: 100%;
+  left: 0;
 }
 
-/* Hero */
+/* --------------------------------------------------------------------------
+   4) Hero
+   -------------------------------------------------------------------------- */
+
 .hero {
-	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: #0f0f0f;
+  position: relative;
+  overflow: hidden; /* importante para que el efecto no se salga */
 }
 
+.hero-cursor {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(250, 204, 21, 0.6) 0%,
+    rgba(250, 204, 21, 0.35) 25%,
+    rgba(250, 204, 21, 0.15) 45%,
+    transparent 65%
+  );
+  filter: blur(26px);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+/* Si mantienes el <div class="hero-bg"> en el HTML, lo mandamos al fondo */
 .hero-bg {
-	background: inherit;
-	z-index: 0;
+  background: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* al fondo de todo */
 }
 
-.floating-shapes {
-	position: absolute;
-	inset: 0;
-	overflow: hidden;
-	z-index: 0;
-}
-
+/* Desactivar bolas del ejemplo anterior */
+.floating-shapes,
 .shape {
-	position: absolute;
-	border-radius: 50%;
-	filter: blur(60px);
-	opacity: 0.4;
+  display: none !important;
 }
 
-.shape-1 {
-	width: 400px;
-	height: 400px;
-	background: var(--bs-primary);
-	top: 10%;
-	left: 10%;
-}
-
-.shape-2 {
-	width: 300px;
-	height: 300px;
-	background: #ec4899;
-	top: 60%;
-	right: 10%;
-}
-
-.shape-3 {
-	width: 250px;
-	height: 250px;
-	background: #14b8a6;
-	bottom: 10%;
-	left: 30%;
-}
-
+/* Texto */
 .hero-title {
-	letter-spacing: -0.03em;
+  letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
-.scroll-indicator { z-index: 10; }
+/* Scroll indicator */
+.scroll-indicator {
+  z-index: 10;
+}
 
 .mouse {
-	width: 26px;
-	height: 42px;
-	border: 2px solid rgba(255, 255, 255, 0.5);
-	border-radius: 13px;
-	position: relative;
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 13px;
+  position: relative;
 }
 
 .mouse::after {
-	content: '';
-	position: absolute;
-	top: 8px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 4px;
-	height: 8px;
-	background: rgba(255, 255, 255, 0.7);
-	border-radius: 2px;
-	animation: scrollMouse 1.5s ease-in-out infinite;
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--accent-yellow);
+  border-radius: 2px;
+  animation: scrollMouse 1.5s ease-in-out infinite;
 }
 
 @keyframes scrollMouse {
-	0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
-	50% { opacity: 0.3; transform: translateX(-50%) translateY(12px); }
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.3; transform: translateX(-50%) translateY(12px); }
 }
 
-/* About */
-.about-image { position: relative; }
 
-.about-image::before {
-	content: '';
-	position: absolute;
-	inset: 20px -20px -20px 20px;
-	border: 2px solid var(--bs-primary);
-	border-radius: 1rem;
-	z-index: -1;
+/* --------------------------------------------------------------------------
+   5) About
+   -------------------------------------------------------------------------- */
+
+.about-image {
+  position: relative;
 }
 
 .about-image img {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .progress {
-	background-color: rgba(255, 255, 255, 0.1);
-	border-radius: 4px;
-	overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .progress-bar {
-	background: linear-gradient(
-		90deg,
-		var(--bs-primary),
-		rgba(var(--bs-primary-rgb), 0.7)
-	);
+  background: linear-gradient(
+    90deg,
+    var(--bs-primary),
+    rgba(var(--bs-primary-rgb), 0.7)
+  );
+}
+
+/* En claro, la barra de fondo no debe ser blanca semitransparente */
+html[data-bs-theme="light"] .progress {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* --------------------------------------------------------------------------
-   Projects: Pinterest / Masonry (CSS Columns)
+   6) Projects: Masonry (CSS Columns)
    -------------------------------------------------------------------------- */
 
 .masonry {
-	column-count: 3;
-	column-gap: 1.25rem;
+  column-count: 3;
+  column-gap: 1.25rem;
 }
 
 .pin {
-	width: 100%;
-	display: inline-block; /* IMPORTANT para columns */
-	margin: 0 0 1.25rem;
-	padding: 0;
-	border: 0;
-	background: transparent;
-	text-align: left;
-	break-inside: avoid;
-	cursor: pointer;
-	transition: transform 0.35s var(--ease-out);
+  width: 100%;
+  display: inline-block;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  break-inside: avoid;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out);
 }
 
 .pin:hover {
-	transform: translateY(-6px);
+  transform: translateY(-6px);
 }
 
 .pin img {
-	width: 100%;
-	height: auto; /* esto crea alturas distintas */
-	display: block;
-	border-radius: 1rem;
-	box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
 }
 
 .pin-meta {
-	margin-top: 0.75rem;
-	padding: 0 0.25rem;
+  margin-top: 0.75rem;
+  padding: 0 0.25rem;
 }
 
 .pin-title {
-	font-size: 1.05rem;
-	margin: 0 0 0.35rem;
-	font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  color: var(--bs-body-color);
 }
 
 .pin-tags .badge {
-	margin-right: 0.35rem;
-	margin-bottom: 0.35rem;
+  margin-right: 0.35rem;
+  margin-bottom: 0.35rem;
 }
 
-/* Badge styling */
+/* Badges */
 .bg-primary-subtle {
-	background-color: rgba(99, 102, 241, 0.15) !important;
+  background-color: rgba(99, 102, 241, 0.15) !important;
 }
 
 .text-primary {
-	color: var(--bs-primary) !important;
+  color: var(--bs-primary) !important;
 }
 
-/* Responsive columns */
 @media (max-width: 991.98px) {
-	.masonry { column-count: 2; }
+  .masonry { column-count: 2; }
 }
 
 @media (max-width: 575.98px) {
-	.masonry { column-count: 1; }
+  .masonry { column-count: 1; }
 }
 
 /* --------------------------------------------------------------------------
-   Modals / carousel captions full width
+   7) Modals / Carousel captions (full width)
    -------------------------------------------------------------------------- */
 
-#projects .modal-content {
-	border-radius: 1.5rem;
-}
-
+#projects .modal-content,
 #projects .carousel-inner {
-	border-radius: 1.5rem;
+  border-radius: 1.5rem;
 }
 
 #projects .carousel-caption {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	padding: 1rem 1.25rem;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-	border-bottom-left-radius: 1.5rem;
-	border-bottom-right-radius: 1.5rem;
-	text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  text-align: left;
 }
 
 #projects .carousel-caption p {
-	margin: 0;
-	font-size: 0.95rem;
-	color: #fff;
+  margin: 0;
+  font-size: 0.95rem;
+  color: #fff;
 }
 
-#projects .carousel-caption.d-none.d-md-block {
-	display: block !important;
+/* Tu ajuste de “textitos del carrusel” (más bajo) */
+.carousel-caption {
+  bottom: -1.5rem !important;
+  padding-bottom: 1.5rem;
 }
 
-/* Contact */
+/* --------------------------------------------------------------------------
+   8) Contact / Social
+   -------------------------------------------------------------------------- */
+
 .social-links a {
-	transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .social-links a:hover {
-	color: var(--bs-primary) !important;
-	transform: translateY(-3px);
+  color: var(--bs-primary) !important;
+  transform: translateY(-3px);
 }
 
-/* Buttons */
+/* --------------------------------------------------------------------------
+   9) Buttons
+   -------------------------------------------------------------------------- */
+
 .btn-primary {
-	background: var(--accent-yellow);
-	border-color: var(--accent-yellow);
-	color: #111111;
-	padding: 0.75rem 2rem;
-	font-weight: 600;
-	transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+  color: #111111;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .btn-primary:hover {
-	background: #fde047; /* amarillo un poco más claro */
-	border-color: #fde047;
-	transform: translateY(-2px);
-	box-shadow: 0 10px 20px rgba(250, 204, 21, 0.35);
+  background: #fde047;
+  border-color: #fde047;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(250, 204, 21, 0.35);
 }
 
 .btn-outline-light {
-	padding: 0.75rem 2rem;
-	font-weight: 600;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
 }
 
 .btn-outline-light:hover {
-	transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-.z-1 { z-index: 1; }
+/* --------------------------------------------------------------------------
+   10) Typography (Lacquer)
+   -------------------------------------------------------------------------- */
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-	}
-
-	.shape { display: none; }
-	.pin:hover { transform: none; }
-}
-
-/* Extra: legibilidad en fondos oscuros (tus fixes, simplificados) */
-.text-muted { color: rgba(255, 255, 255, 0.75) !important; }
-.bg-dark p { color: rgba(255, 255, 255, 0.9); }
-.hero-title, .hero-subtitle, .display-5 { color: #fff; }
-
-/* Título debajo de cada imagen (masonry/pinterest) */
-#projects .pin-title {
-	color: #ffffff !important;
-}
-
-/* Tipografía Lacquer para títulos principales */
+.hero-title,
 #about .display-5,
 #projects .display-5,
 #contact .display-5 {
   font-family: "Lacquer", system-ui;
   font-weight: 400;
-}
-
-.hero-title {
-  font-family: "Lacquer", system-ui;
-  font-weight: 400;
-}
-
-/* Detalle amarillo sutil */
-.scroll-indicator .mouse::after {
-	background: var(--accent-yellow);
 }
 
 /* Línea decorativa bajo títulos */
 .display-5::after {
-	content: '';
-	display: block;
-	width: 60px;
-	height: 3px;
-	margin-top: 0.75rem;
-	background: var(--accent-yellow);
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 0.75rem;
+  background: var(--accent-yellow);
 }
 
+/* centradas en projects/contact, izquierda en about */
 #projects .display-5::after,
 #contact .display-5::after {
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 #about .display-5::after {
-	margin-left: 0;
-	margin-right: auto;
+  margin-left: 0;
+  margin-right: auto;
 }
 
-/* Ajuste de spacing título + línea para que quede equilibrado */
+/* Spacing título + línea equilibrado */
 #about .display-5,
 #projects .display-5,
 #contact .display-5 {
-	margin-bottom: 0.75rem !important; /* espacio debajo del título */
+  margin-bottom: 0.75rem !important;
 }
 
 #about .display-5::after,
 #projects .display-5::after,
 #contact .display-5::after {
-	margin-top: 0.75rem; /* espacio entre título y línea */
-	margin-bottom: 0.75rem; /* espacio entre línea y texto de abajo */
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
-
-/* textitos del carrusel */
-.carousel-caption {
-	bottom: -1.5rem !important;
-	padding-bottom: 1.5rem;
-}
-
+/* --------------------------------------------------------------------------
+   11) Project info (texto fijo del modal)
+   -------------------------------------------------------------------------- */
 
 .project-info {
-	max-width: 680px;
+  max-width: 680px;
 }
 
 .project-meta {
-	font-size: 0.85rem;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-	opacity: 0.75;
-	margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.35rem;
 }
 
 .project-description {
-	font-size: 0.95rem;
-	line-height: 1.5;
-	opacity: 0.9;
-	margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 0;
 }
 
+/* meta en amarillo (pero legible en ambos temas) */
 .project-info .project-meta {
-	color: var(--accent-yellow) !important;
-	opacity: 0.65;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	font-size: 0.85rem;
-	margin-bottom: 0.25rem;
+  color: var(--accent-yellow) !important;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+/* En modo claro, baja un pelín la opacidad del amarillo para que no “grite” */
+html[data-bs-theme="light"] .project-info .project-meta {
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   12) Utilities
+   -------------------------------------------------------------------------- */
+
+.z-1 { z-index: 1; }
+
+/* --------------------------------------------------------------------------
+   13) Theme toggle (emoji only)
+   -------------------------------------------------------------------------- */
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: inherit;
+}
+
+.theme-toggle:hover { opacity: 0.8; }
+.theme-toggle:focus { outline: none; }
+
+/* --------------------------------------------------------------------------
+   14) Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .shape { display: none; }
+  .pin:hover { transform: none; }
+}
+
+/* --------------------------------------------------------------------------
+   15) Responsive adjustments
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+  .about-image::before { display: none; }
+}
+
+/* =========================================
+   FIX REAL modo claro: modales llevan "text-white" en el HTML
+   ========================================= */
+
+/* Quitar el blanco forzado del modal en modo claro */
+html[data-bs-theme="light"] #projects .modal-content.text-white,
+html[data-bs-theme="light"] #projects .modal-content.text-white * {
+  color: #111 !important;
+}
+
+/* Mantener el meta en amarillo (año · tipo) */
+html[data-bs-theme="light"] #projects .project-meta {
+  color: var(--accent-yellow) !important;
+}
+
+/* Mantener los captions encima de las fotos en blanco (porque van sobre imagen) */
+html[data-bs-theme="light"] #projects .carousel-caption,
+html[data-bs-theme="light"] #projects .carousel-caption * {
+  color: #fff !important;
+}
+
+/* Texto descriptivo de abajo (más suave que negro puro) */
+html[data-bs-theme="light"] #projects .project-description {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* El fondo del modal en claro (por si acaso) */
+html[data-bs-theme="light"] #projects .modal-content.bg-dark {
+  background-color: #fff !important;
+}
+
+/* HOVER amarillo en "Portfolio" (navbar-brand) */
+.navbar .navbar-brand {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: var(--accent-yellow) !important;
+}
+
+.navbar-toggler {
+	border: none;
+}
+
+.navbar-toggler:focus {
+	box-shadow: none;
 }

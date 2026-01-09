@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Grade 2 Demo: Bootstrap + GSAP Scroll</title>
+	<title>Portfolio: Lydia Wey</title>
+	<link rel="icon" type="image/png" href="../porfolioTemplate/assets/images/favicon.png">
 
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
+	
+    <!-- Custom Styles -->
+	<link rel="stylesheet" href="../porfolioTemplate/assets/css/index.css" />
 
-	<!-- Custom Styles -->
-	<link rel="stylesheet" href="./assets/css/otros.css" />
-
-    <!-- Custom Scripts -->
-	<script src="./assets/js/main.js" defer></script>
+	<!-- Custom Scripts -->
+	<script src="../porfolioTemplate/assets/js/main.js" defer></script>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
 	<!-- Navigation -->
 	<nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
 		<div class="container">
 			<a class="navbar-brand fw-bold" href="#">Portfolio</a>
-			<button
-				class="navbar-toggler"
-				type="button"
-				data-bs-toggle="collapse"
-				data-bs-target="#navbarNav"
-				aria-controls="navbarNav"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+			
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
@@ -37,16 +34,32 @@
 					<li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
 				</ul>
 			</div>
+			
+			<div class="d-flex align-items-center ms-auto gap-0">
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<button id="theme-toggle" class="theme-toggle ms-lg-2" type="button" aria-label="Cambiar tema">
+					<span id="theme-icon">☀️</span>
+				</button>
+			</div>
 		</div>
 	</nav>
 
 	<main>
 		<!-- Hero Section -->
 		<section id="hero" class="hero min-vh-100 d-flex align-items-center position-relative overflow-hidden">
-			<!-- Parallax Background -->
+			<div class="hero-cursor"></div>
 			<div class="hero-bg position-absolute w-100 h-100"></div>
 
-			<!-- Floating shapes (GSAP animated) -->
 			<div class="floating-shapes">
 				<div class="shape shape-1"></div>
 				<div class="shape shape-2"></div>
@@ -62,42 +75,36 @@
 				</div>
 			</div>
 
-			<!-- Scroll indicator -->
 			<div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
 				<div class="mouse"></div>
 			</div>
 		</section>
 
-		<!-- About Section -->
+		<!-- About me Section -->
 		<section id="about" class="py-5 py-lg-6 bg-dark">
 			<div class="container">
 				<div class="row align-items-center g-5">
 					<div class="col-lg-6">
 						<div class="about-image gsap-reveal">
 							<img
-								src="https://picsum.photos/600/700?random=10"
+								src="../porfolioTemplate/assets/images/camaraYo.png"
 								alt="Profile"
-								class="img-fluid rounded-4 shadow-lg" />
+								class="img-fluid rounded-4" />
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<h2 class="display-5 fw-bold mb-4 gsap-reveal">About Me</h2>
+						<h2 class="display-5 fw-bold mb-4 gsap-reveal">Sobre mí</h2>
 						<p class="lead text-muted mb-4 gsap-reveal">
-							I'm a creative developer passionate about building beautiful,
-							functional, and accessible digital experiences.
+							Hola! Soy Lydia, diseñadora gráfica. Me interesa trabajar en proyectos variados y aprender de cada uno de ellos, disfrutando especialmente del trabajo en equipo y de los entornos colaborativos. Mi forma de trabajar es tranquila y organizada, lo que me permite adaptarme con facilidad a distintas situaciones.
 						</p>
 						<p class="text-muted gsap-reveal">
-							With 7+ years of experience spanning front-end development, UI/UX
-							design, and motion graphics, I bring a unique perspective to every
-							project. I believe in the power of animation to enhance user
-							experience without sacrificing performance.
+							He desarrollado mi formación en Diseño Gráfico y Multimedia entre ESNE / ESDAC Asturias y ESNE / UDIT Madrid, complementándola con experiencia profesional a través de prácticas curriculares y extracurriculares.
 						</p>
 
-						<!-- Skills with animated progress -->
 						<div class="skills mt-5">
-							<div class="skill-item gsap-reveal mb-3">
+                            <div class="skill-item gsap-reveal mb-3">
 								<div class="d-flex justify-content-between mb-2">
-									<span class="fw-semibold">React / Next.js</span>
+									<span class="fw-semibold">Microsoft Suit</span>
 									<span class="text-muted">95%</span>
 								</div>
 								<div class="progress" style="height: 8px">
@@ -106,7 +113,16 @@
 							</div>
 							<div class="skill-item gsap-reveal mb-3">
 								<div class="d-flex justify-content-between mb-2">
-									<span class="fw-semibold">GSAP / Animation</span>
+									<span class="fw-semibold">Illustrator/InDesign/Photoshop</span>
+									<span class="text-muted">95%</span>
+								</div>
+								<div class="progress" style="height: 8px">
+									<div class="progress-bar skill-bar" data-width="95"></div>
+								</div>
+							</div>
+							<div class="skill-item gsap-reveal mb-3">
+								<div class="d-flex justify-content-between mb-2">
+									<span class="fw-semibold">Figma/Canva</span>
 									<span class="text-muted">90%</span>
 								</div>
 								<div class="progress" style="height: 8px">
@@ -115,7 +131,7 @@
 							</div>
 							<div class="skill-item gsap-reveal mb-3">
 								<div class="d-flex justify-content-between mb-2">
-									<span class="fw-semibold">Node.js / Express</span>
+									<span class="fw-semibold">Premiere/After Effects/Capcut</span>
 									<span class="text-muted">85%</span>
 								</div>
 								<div class="progress" style="height: 8px">
@@ -128,149 +144,115 @@
 			</div>
 		</section>
 
-		<!-- Projects Section -->
+		<!-- Projects Section (Pinterest/Masonry) -->
 		<section id="projects" class="py-5 py-lg-6">
 			<div class="container">
 				<div class="text-center mb-5">
-					<h2 class="display-5 fw-bold gsap-reveal">Featured Projects</h2>
-					<p class="lead text-muted gsap-reveal">A selection of my recent work</p>
+					<h2 class="display-5 fw-bold gsap-reveal">Proyectos</h2>
+					<p class="lead text-muted gsap-reveal">Scroll para verlos rápido · click para ampliar</p>
 				</div>
 
-				<div class="row g-4 align-items-start">
-					<!-- Project Card 1 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=1"
-									class="card-img-top"
-									alt="E-commerce Platform" />
+				<!-- Masonry grid -->
+				<div class="masonry">
+					<!-- Pin 1 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal1">
+						<img src="../porfolioTemplate/assets/images/cartel2.jpg" alt="Proyecto 1" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Metamorfosis</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Cartelería</span>
+								<span class="badge bg-primary-subtle text-primary">Folletos</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">E-commerce Platform</h3>
-								<p class="card-text text-muted small">
-									Full-stack e-commerce solution with real-time inventory and Stripe integration.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">React</span>
-									<span class="badge bg-primary-subtle text-primary">Node.js</span>
-									<span class="badge bg-primary-subtle text-primary">MongoDB</span>
-								</div>
-							</div>
-						</article>
-					</div>
+						</div>
+					</button>
 
-					<!-- Project Card 2 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=2"
-									class="card-img-top"
-									alt="Dashboard UI" />
+					<!-- Pin 2 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal2">
+						<img src="../porfolioTemplate/assets/images/Chocolate_NEGRO_Packaging.jpg" alt="Proyecto 2" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Chocolate Cazuko</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Branding</span>
+								<span class="badge bg-primary-subtle text-primary">Packaging</span>
+								<span class="badge bg-primary-subtle text-primary">Folletos</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">Analytics Dashboard</h3>
-								<p class="card-text text-muted small">
-									Real-time data visualization with interactive charts and dark mode.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">D3.js</span>
-									<span class="badge bg-primary-subtle text-primary">WebSocket</span>
-									<span class="badge bg-primary-subtle text-primary">GSAP</span>
-								</div>
-							</div>
-						</article>
-					</div>
+						</div>
+					</button>
 
-					<!-- Project Card 3 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=3"
-									class="card-img-top"
-									alt="Mobile App" />
+					<!-- Pin 3 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal3">
+						<img src="../porfolioTemplate/assets/images/FolletoVinos.jpg" alt="Proyecto 3" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Vinos Campo Noble</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Branding</span>
+								<span class="badge bg-primary-subtle text-primary">Packaging</span>
+								<span class="badge bg-primary-subtle text-primary">Folletos</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">Fitness Mobile App</h3>
-								<p class="card-text text-muted small">
-									Cross-platform fitness tracker with workout plans and progress analytics.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">React Native</span>
-									<span class="badge bg-primary-subtle text-primary">Firebase</span>
-								</div>
-							</div>
-						</article>
-					</div>
+						</div>
+					</button>
 
-					<!-- Project Card 4 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=4"
-									class="card-img-top"
-									alt="Portfolio Site" />
+					<!-- Pin 4 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal4">
+						<img src="../porfolioTemplate/assets/images/1984.jpg" alt="Proyecto 4" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Libros Distópicos</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Editorial</span>
+								<span class="badge bg-primary-subtle text-primary">Libros</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">Agency Website</h3>
-								<p class="card-text text-muted small">
-									Award-winning agency site with scroll-driven animations and 3D elements.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">Three.js</span>
-									<span class="badge bg-primary-subtle text-primary">GSAP</span>
-								</div>
-							</div>
-						</article>
-					</div>
+						</div>
+					</button>
 
-					<!-- Project Card 5 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=5"
-									class="card-img-top"
-									alt="SaaS Platform" />
+					<!-- Pin 5 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal5">
+						<img src="../porfolioTemplate/assets/images/V_SANT.jpg" alt="Proyecto 5" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Colección Guías de Viaje</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Editorial</span>
+								<span class="badge bg-primary-subtle text-primary">Libros</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">SaaS Platform</h3>
-								<p class="card-text text-muted small">
-									Multi-tenant SaaS with role-based access and subscription management.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">Next.js</span>
-									<span class="badge bg-primary-subtle text-primary">Prisma</span>
-								</div>
-							</div>
-						</article>
-					</div>
+						</div>
+					</button>
 
-					<!-- Project Card 6 -->
-					<div class="col-md-6 col-lg-4 d-flex">
-						<article class="card project-card h-100 border-0 shadow-sm w-100">
-							<div class="card-img-wrapper overflow-hidden">
-								<img
-									src="https://picsum.photos/400/300?random=6"
-									class="card-img-top"
-									alt="AI Tool" />
+					<!-- Pin 6 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal6">
+						<img src="../porfolioTemplate/assets/images/R12-13.jpg" alt="Proyecto 6" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Revista Urban</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Editorial</span>
+								<span class="badge bg-primary-subtle text-primary">Revista</span>
 							</div>
-							<div class="card-body">
-								<h3 class="card-title h5">AI Content Generator</h3>
-								<p class="card-text text-muted small">
-									GPT-powered content creation tool with custom fine-tuning options.
-								</p>
-								<div class="d-flex flex-wrap gap-2">
-									<span class="badge bg-primary-subtle text-primary">OpenAI</span>
-									<span class="badge bg-primary-subtle text-primary">Python</span>
-								</div>
+						</div>
+					</button>
+
+					<!-- Pin 7 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal7">
+						<img src="../porfolioTemplate/assets/images/cartelSantJordi_Mockup.jpg" alt="Proyecto 7" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Sant Jordi 2026</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Cartelería</span>
+								<span class="badge bg-primary-subtle text-primary">Mockup</span>
 							</div>
-						</article>
-					</div>
+						</div>
+					</button>
+
+					<!-- Pin 8 -->
+					<button class="pin gsap-reveal" type="button" data-bs-toggle="modal" data-bs-target="#projectModal8">
+						<img src="../porfolioTemplate/assets/images/tusMascotas.jpg" alt="Proyecto 8" />
+						<div class="pin-meta">
+							<h3 class="pin-title">Tus Mascotas</h3>
+							<div class="pin-tags">
+								<span class="badge bg-primary-subtle text-primary">Branding</span>
+								<span class="badge bg-primary-subtle text-primary">Mockup</span>
+							</div>
+						</div>
+					</button>
 				</div>
+
 			</div>
 		</section>
 
@@ -279,24 +261,24 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-8 text-center">
-						<h2 class="display-5 fw-bold mb-4 gsap-reveal">Let's Work Together</h2>
+						<h2 class="display-5 fw-bold mb-4 gsap-reveal">Trabajemos juntos!</h2>
 						<p class="lead text-muted mb-5 gsap-reveal">
-							Have a project in mind? I'd love to hear about it. Let's create something amazing.
+							Si tienes un proyecto en mente o te interesa colaborar, estaré encantada de escucharte y valorar nuevas propuestas.
 						</p>
 						<div class="gsap-reveal">
 							<a href="mailto:hello@example.com" class="btn btn-primary btn-lg mb-4">
-								Start a Conversation
+								Ponte en contacto conmigo
 							</a>
 						</div>
 						<div class="social-links gsap-reveal d-flex justify-content-center gap-4">
-							<a href="#" class="text-muted fs-4" aria-label="GitHub">
+							<a href="https://github.com/lydiawey" class="text-muted fs-4" aria-label="GitHub">
 								<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
 							</a>
-							<a href="#" class="text-muted fs-4" aria-label="LinkedIn">
+							<a href="https://www.linkedin.com/in/lydia-wey-fernández-03b22138a/" class="text-muted fs-4" aria-label="LinkedIn">
 								<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
 							</a>
 							<a href="#" class="text-muted fs-4" aria-label="Twitter">
-								<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+								<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-6V5h6v2zm-2.667 4.333c.667 0 1.333-.333 1.333-1.333S20 8.667 19.333 8.667h-4v2.666h4zM19.333 12.667c.667 0 1.334-.334 1.334-1.334S20 10 19.333 10h-4v2.667h4zM10.667 12.667c.667 0 1.333-.334 1.333-1.334S11.334 10 10.667 10H6v2.667h4.667zM10.667 16c1.334 0 2.667-.667 2.667-2.667S12 10.667 10.667 10.667H6V16h4.667zM6 4h4.667c1.334 0 2.667.667 2.667 2.667S12 9.333 10.667 9.333H6V4z"/></svg>
 							</a>
 						</div>
 					</div>
@@ -305,12 +287,457 @@
 		</section>
 	</main>
 
-	<!-- Footer -->
 	<footer class="py-4 text-center text-muted small">
 		<div class="container">
-			<p class="mb-0">&copy; 2025 John Designer. Built with Bootstrap 5 + GSAP.</p>
+			<p class="mb-0">&copy; 2025 Lydia Wey. Built with Bootstrap 5 + GSAP.</p>
 		</div>
 	</footer>
+
+	<!-- Modals por proyecto (ejemplo) -->
+	<!-- Modal 1 -->
+	<div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Metamorfosis</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/cartel2.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Versión Venecia</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/cartel1.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Versión Berlín</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/cartel3.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Versión Madrid</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/folleto_Mockup_4.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Exterior Folleto</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/folleto_Mockup_2.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interior Folleto</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2024 · Cartelería</p>
+						<p class="project-description">
+						Colección de carteles para La metamorfosis de Franz Kafka, adaptados a distintos contextos culturales: Venecia, Berlín y Madrid.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Copia este patrón para el resto (te dejo 7 modales más listos) -->
+	<!-- Modal 2 -->
+	<div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Chocolate Cazuko</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/Chocolate_NEGRO_Packaging copia.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Chocolate Negro</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Chocolate_BLANCO_Packaging.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Chocolate Blanco</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Chocolate_Packaging.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Chocolate con Leche</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Invitiation_Mockup_1.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Folleto Cazuko</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Invitiation_Mockup_3.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Folleto Cazuko</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2024 · Packaging</p>
+						<p class="project-description">
+						Colección de packaging para chocolate negro, con leche y blanco, inspirada en la estética azteca y la simbología del cacao, acompañada de un folleto explicativo en formato díptico.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 3 -->
+	<div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Vinos Campo Noble</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/Package TINTO.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Vino Tinto</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Package ROSADO.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Vino Rosado</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/Package BLANCO.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Packaging Vino Blanco</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/FolletoVinos ext.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Folleto Campo Noble</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2024 · Packaging</p>
+						<p class="project-description">
+						Colección de packaging para vino tinto, rosado y blanco, acompañada de un folleto informativo en formato flyer a doble cara.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 4 -->
+	<div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Libros Distópicos</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel4" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/1984 copia.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Portada 1984</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/1984_cubierta.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta 1984</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/farenhait.jpg" class="d-block w-100" alt="img 3">
+								<div class="carousel-caption d-none d-md-block"><p>Portada Fahrenheit 451</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/farenhait_cubierta.jpg" class="d-block w-100" alt="img 4">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta Fahrenheit 451</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/unMundoFeliz.jpg" class="d-block w-100" alt="img 5">
+								<div class="carousel-caption d-none d-md-block"><p>Portada Un Mundo Feliz</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/un mundo feliz_cubierta.jpg" class="d-block w-100" alt="img 6">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta Un Mundo Feliz</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/dador.jpg" class="d-block w-100" alt="img 7">
+								<div class="carousel-caption d-none d-md-block"><p>Portada El Dador</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/dador_cubierta.jpg" class="d-block w-100" alt="img 8">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta El Dador</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2025 · Editorial</p>
+						<p class="project-description">
+						Colección de cubiertas para libros distópicos (1984, Fahrenheit 451, Un mundo feliz y El dador), con una estructura gráfica común basada en color, iconografía y dibujo de línea continua.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 5 -->
+	<div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Colección Guías de Viaje</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel5" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/V_SANT.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Portada Santorini</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/cubierta_santorini.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta Santorini</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/V_FLOR.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Portada Florencia</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/cubierta_florencia.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta Florencia</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/V_NY.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Portada Nueva York</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/cubierta_ny.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Cubierta Nueva York</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/guardas.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores NY</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/portadilla.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores NY</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/index.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores NY</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/V12-13.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores NY</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/V20-21.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores NY</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2025 · Editorial</p>
+						<p class="project-description">
+						Colección de guías de viaje para Florencia, Santorini y Nueva York, concebidas con una estética de postal como recuerdo visual y funcional del viaje.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 6 -->
+	<div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Revista Urban</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel6" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/Rportada.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Portada</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R4-5.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R8-9.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R10-11.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R12-13 copia.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/R14-15.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Interiores</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2025 · Editorial</p>
+						<p class="project-description">
+						Diseño de revista urbana centrada en la cultura street, con una estética de recortes y contrastes en blanco y negro con colores de acento.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 7 -->
+	<div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Sant Jordi 2026</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel7" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/cartelSantJordi_Mockup.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Mockup y aplicación</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/CARTEL_SANT JORDI.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Cartel</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel7" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel7" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2025 · Cartelería</p>
+						<p class="project-description">
+						Cartel para Sant Jordi basado en una rosa de papel realizada a mano y fotografiada como elemento central.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal 8 -->
+	<div class="modal fade" id="projectModal8" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content bg-dark">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Tus Mascotas</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div id="carousel8" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner rounded-4 overflow-hidden">
+							<div class="carousel-item active">
+								<img src="../porfolioTemplate/assets/images/tusMascotas.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/camisetas tus mascotas.jpg" class="d-block w-100" alt="img 1">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/pegatinas_tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/boli_tusmascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/coche_tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+							<div class="carousel-item">
+								<img src="../porfolioTemplate/assets/images/tarjeta tus mascotas.jpg" class="d-block w-100" alt="img 2">
+								<div class="carousel-caption d-none d-md-block"><p>Mockups</p></div>
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carousel8" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carousel8" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+					<div class="project-info mt-4">
+						<p class="project-meta">2025 · Branding</p>
+						<p class="project-description">
+						Proyecto de branding para la empresa de transporte de animales Tus Mascotas, desarrollado con una estética sencilla y limpia en una paleta de azul, negro y blanco.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -319,6 +746,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollToPlugin.min.js"></script>
-
 </body>
 </html>

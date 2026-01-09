@@ -522,3 +522,61 @@ window.cleanupAnimations = () => {
 	ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 	gsap.killTweensOf('*');
 };
+
+// ==========================
+// MODO claro-oscuro
+// ==========================
+(function () {
+  const html = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+
+  const setTheme = (theme) => {
+    html.setAttribute("data-bs-theme", theme);
+    icon.textContent = theme === "dark" ? "☀️" : "🌙";
+  };
+
+  // Siempre empieza en oscuro
+  setTheme("dark");
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const current = html.getAttribute("data-bs-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+})();
+
+// chispas amarilla hero
+const hero = document.querySelector('.hero');
+const cursor = document.querySelector('.hero-cursor');
+
+if (hero && cursor) {
+  let mouseX = 0;
+  let mouseY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    cursor.style.opacity = '1';
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+  });
+
+  function animate() {
+    currentX += (mouseX - currentX) * 0.12;
+    currentY += (mouseY - currentY) * 0.12;
+
+    cursor.style.left = `${currentX}px`;
+    cursor.style.top = `${currentY}px`;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
